@@ -44,6 +44,14 @@ namespace Zenject
             _container = parentContainer.CreateSubContainer();
 
             Initialize();
+
+#if ZEN_INTERNAL_PROFILING
+            if (SceneKernel.End)
+            {
+                var result = $"GameObjectContext({name}).Awake detailed profiling: {ProfileTimers.FormatResults()}";
+                Log.Info(result);
+            }
+#endif
         }
 
         protected override void RunInternal()

@@ -9,10 +9,21 @@ namespace Zenject
         // Only needed to set "script execution order" in unity project settings
 
 #if ZEN_INTERNAL_PROFILING
+
+        public static bool End;
+        
         public override void Start()
         {
             base.Start();
             Log.Info("SceneContext.Awake detailed profiling: {0}", ProfileTimers.FormatResults());
+            ProfileTimers.ResetAll();
+            End = true;
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            End = false;
         }
 #endif
     }
