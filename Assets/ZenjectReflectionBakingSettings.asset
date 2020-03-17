@@ -17,4 +17,5 @@ MonoBehaviour:
   _allGeneratedAssemblies: 1
   _includeAssemblies: []
   _excludeAssemblies: []
-  _namespacePatterns: []
+  _namespacePatterns:
+  - ^Sample
